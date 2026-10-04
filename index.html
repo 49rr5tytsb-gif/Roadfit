@@ -108,10 +108,33 @@
     <div class="titlebar"><button class="back" onclick="show('home')">‹</button><h2>RoadFit</h2></div>
     <div class="card"><b>Objetivo</b><p class="muted">Perder grasa y mantener músculo.</p><div class="statgrid"><div class="stat"><span class="muted">Actual</span><b>215 lb</b></div><div class="stat"><span class="muted">Meta</span><b>175 lb</b></div></div></div>
     <div class="card"><b>Preferencias</b><p class="muted">3 días · Push / Pull / Legs</p><div class="timerbtns"><button class="secondary" onclick="show('calendar')">Calendario</button><button class="secondary" onclick="show('stats')">Estadísticas</button></div><button class="secondary" style="width:100%;margin-top:10px" onclick="resetData()">Restablecer datos</button></div>
-    <div class="card"><b>Cuenta RoadFit</b><p class="muted">Esta versión guarda tus datos en este dispositivo.</p>
- <input class="input" id="profileName" placeholder="Tu nombre" style="margin-top:8px">
- <button class="primary" onclick="saveProfile()">Guardar perfil</button>
- <div class="sync"><span class="dot"></span><div><b id="syncStatus">Datos guardados localmente</b><div class="muted">Listos para sincronización cuando conectemos una cuenta.</div></div></div>
+    <div class="card">
+  <b>Cuenta RoadFit</b>
+  <p class="muted">Crea una cuenta para guardar tu progreso y sincronizarlo.</p>
+
+  <input class="input" id="authEmail" type="email" placeholder="Correo electrónico" style="margin-top:8px">
+
+  <input class="input" id="authPassword" type="password" placeholder="Contraseña" style="margin-top:8px">
+
+  <button class="primary" onclick="signUpRoadFit()" style="margin-top:10px">
+    Crear cuenta
+  </button>
+
+  <button class="secondary" onclick="signInRoadFit()" style="margin-top:8px">
+    Iniciar sesión
+  </button>
+
+  <button class="secondary" onclick="signOutRoadFit()" style="margin-top:8px;display:none" id="logoutBtn">
+    Cerrar sesión
+  </button>
+
+  <div class="sync" style="margin-top:10px">
+    <span class="dot"></span>
+    <div>
+      <b id="syncStatus">No has iniciado sesión</b>
+      <div class="muted" id="authMessage">Tus datos están guardados en este dispositivo.</div>
+    </div>
+  </div>
 </div>
   </main>
 
