@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1117">
+<title>RoadFit</title>
+<style>
+:root{--bg:#071018;--card:#101b24;--card2:#14232e;--text:#f4f7fa;--muted:#8fa2b2;--blue:#25a7ff;--green:#43d17b;--orange:#ffad3d;--line:#223441}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#071018,#0b141d);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif}button,input{font:inherit}button{border:0}.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:82px}.top{padding:22px 18px 12px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:30px;font-weight:900;letter-spacing:-1.5px}.logo span{color:var(--blue)}.sub{color:var(--muted);font-size:13px;margin-top:2px}.gear{background:var(--card);color:white;border:1px solid var(--line);width:42px;height:42px;border-radius:14px}.page{padding:0 16px}.hero{background:linear-gradient(135deg,#122d3c,#0e1921);border:1px solid #1e3a4b;border-radius:22px;padding:18px;margin:8px 0 14px}.eyebrow{font-size:12px;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.hero h1{margin:6px 0 3px;font-size:28px}.hero p{margin:0;color:var(--muted)}.primary{width:100%;background:var(--blue);color:#00121f;padding:15px;border-radius:15px;font-weight:850;margin-top:16px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tile{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:14px 8px;text-align:center}.tile b{display:block;margin-top:7px}.tile small{color:var(--muted)}.section{font-size:18px;font-weight:850;margin:22px 2px 10px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:10px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.muted{color:var(--muted)}.bar{height:9px;background:#20313d;border-radius:20px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:20px}.tabs{position:fixed;bottom:0;left:0;right:0;background:rgba(7,16,24,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line);z-index:5}.tabsin{max-width:520px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}.tab{background:none;color:var(--muted);padding:8px 2px;font-size:11px}.tab.active{color:var(--blue)}.tab strong{display:block;font-size:19px;margin-bottom:2px}.exercise{display:flex;align-items:center;gap:11px}.num{width:30px;height:30px;border-radius:9px;background:#193343;color:var(--blue);display:grid;place-items:center;font-weight:800}.exercise h3{margin:0;font-size:15px}.exercise p{margin:3px 0 0;color:var(--muted);font-size:12px}.check{width:30px;height:30px;border-radius:9px;background:#182a35;color:var(--muted);font-size:17px}.check.done{background:var(--green);color:#062014}.screen{display:none}.screen.active{display:block}.back{background:none;color:white;font-size:25px}.titlebar{display:flex;align-items:center;gap:8px;margin:8px 0 14px}.titlebar h2{margin:0}.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.stat b{font-size:24px;display:block;margin-top:4px}.timer{font-size:58px;text-align:center;font-weight:800;margin:18px 0}.timerbtns{display:flex;gap:10px}.secondary{flex:1;background:#18303e;color:white;padding:13px;border-radius:13px}.danger{background:#3a1d22;color:#ff9caa}.input{width:100%;background:#0c171f;border:1px solid var(--line);color:white;padding:12px;border-radius:12px}.macro{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.macro .stat{padding:12px;text-align:center}.macro b{font-size:18px}.listbtn{width:100%;text-align:left;background:transparent;color:white;padding:0}.empty{padding:30px 10px;text-align:center;color:var(--muted)}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:20;padding:24px 16px;align-items:flex-end}.modal.open{display:flex}.modalbox{max-width:520px;width:100%;margin:auto;background:#101b24;border:1px solid #29404e;border-radius:22px;padding:18px}.videoBox{border-radius:17px;overflow:hidden;border:1px solid #2a4c5e;background:#0b141d;min-height:220px}.videoBox iframe{display:block;width:100%;height:220px;border:0}.videoFallback{min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;background:radial-gradient(circle at 50% 35%,#234d65,#0b141d 65%)}.videoFallback .play{font-size:48px}.videoFallback b{margin-top:8px}.videoFallback a{display:inline-block;margin-top:14px;background:#18303e;color:white;text-decoration:none;padding:11px 15px;border-radius:12px;font-weight:800}.pill{display:inline-block;padding:6px 9px;border-radius:999px;background:#18303e;color:#8fd3ff;font-size:11px;font-weight:800}.sync{display:flex;align-items:center;gap:10px;background:#0c171f;border:1px solid #223441;padding:12px;border-radius:13px;margin-top:10px}.dot{width:9px;height:9px;border-radius:50%;background:#43d17b}
+</style>
+<link rel="manifest" href="manifest.webmanifest"><script>if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));</script></head>
+<body>
+<div class="app">
+  <div class="top"><div><div class="logo">Road<span>Fit</span></div><div class="sub">Train anywhere. Stay on track.</div></div><button class="gear" onclick="show('profile')">⚙️</button></div>
+
+  <main id="home" class="screen active page">
+    <div class="hero"><div class="eyebrow">Entrenamiento de hoy</div><h1 id="todayName">Push</h1><p id="todayMuscles">Pecho · Hombros · Tríceps</p><button class="primary" onclick="openWorkout()">Comenzar entrenamiento →</button></div>
+    <div class="grid">
+      <button class="tile" onclick="selectWorkout('Push')">💪<b>Push</b><small>Pecho</small></button>
+      <button class="tile" onclick="selectWorkout('Pull')">🏋️<b>Pull</b><small>Espalda</small></button>
+      <button class="tile" onclick="selectWorkout('Legs')">🦵<b>Legs</b><small>Piernas</small></button>
+    </div>
+    <div class="section">Tu progreso</div>
+    <div class="card"><div class="statgrid"><div><span class="muted">Peso actual</span><div style="font-size:24px;font-weight:800"><span id="homeWeight">215</span> lb</div></div><div><span class="muted">Meta</span><div style="font-size:24px;font-weight:800">175 lb</div></div></div><div class="bar"><i id="goalbar" style="width:18%"></i></div><p class="muted" id="goaltext">40 lb hasta tu meta</p></div>
+    <div class="section">Modo carretera 🚛</div>
+    <div class="card"><div class="row"><div><b>¿Sin gimnasio?</b><div class="muted">Rutina rápida sin equipo.</div></div><button class="secondary" style="flex:0 0 auto" onclick="roadMode()">Abrir</button></div></div>
+  </main>
+
+  <main id="workouts" class="screen page">
+    <div class="titlebar"><h2>Rutinas</h2></div>
+    <div class="grid" style="margin-bottom:14px"><button class="tile" onclick="selectWorkout('Push')">Push</button><button class="tile" onclick="selectWorkout('Pull')">Pull</button><button class="tile" onclick="selectWorkout('Legs')">Legs</button></div>
+    <div id="exerciseList"></div>
+  </main>
+
+  <main id="train" class="screen page">
+    <div class="titlebar"><button class="back" onclick="show('workouts')">‹</button><div><h2 id="trainTitle">Push</h2><div class="muted" id="trainCount">Ejercicio 1 de 8</div></div></div>
+    <div class="card"><div class="row"><div><div class="muted">Ejercicio actual</div><h2 id="currentEx">Press de pecho (máquina)</h2><div class="muted" id="currentSets">4 × 8–12</div></div></div></div>
+    <div id="sets"></div>
+    <div class="card"><div class="muted">Descanso</div><div class="timer" id="timer">01:30</div><div class="timerbtns"><button class="secondary" onclick="adjustTimer(-30)">−30s</button><button class="secondary" onclick="toggleTimer()" id="timerBtn">▶</button><button class="secondary" onclick="adjustTimer(30)">+30s</button></div></div>
+    <div class="timerbtns"><button class="secondary" onclick="prevEx()">Anterior</button><button class="primary" style="margin:0;flex:1" onclick="nextEx()">Siguiente →</button></div>
+  </main>
+
+  <main id="progress" class="screen page">
+    <div class="titlebar"><h2>Progreso</h2></div>
+    <div class="statgrid"><div class="stat"><span class="muted">Peso actual</span><b id="pWeight">215 lb</b></div><div class="stat"><span class="muted">Meta</span><b>175 lb</b></div></div>
+    <div class="section">Registrar peso</div><div class="card"><input class="input" id="weightInput" type="number" step=".1" placeholder="Ej. 214.6"><button class="primary" onclick="saveWeight()">Guardar peso</button></div>
+    <div class="section">Historial</div><div id="history"></div>
+  </main>
+
+  <main id="nutrition" class="screen page">
+    <div class="titlebar"><h2>Nutrición</h2></div>
+    <div class="card"><div class="muted">Objetivo diario</div><div style="font-size:32px;font-weight:850;margin-top:4px"><span id="calorieTarget">2,030</span> kcal</div><div class="muted" style="margin-top:5px">Se ajusta automáticamente según tu peso.</div><div class="macro" style="margin-top:14px"><div class="stat"><b id="proteinTarget">150 g</b><span class="muted">Proteína</span></div><div class="stat"><b id="carbTarget">200 g</b><span class="muted">Carbos</span></div><div class="stat"><b id="fatTarget">70 g</b><span class="muted">Grasas</span></div></div></div>
+    <div class="section">Hoy</div><div class="card"><div class="row"><b>Comidas</b><span class="muted">0 / 2,030 kcal</span></div><div class="bar"><i style="width:0%"></i></div></div>
+    <div class="card"><div class="row"><div><b>💧 Agua</b><div class="muted">Objetivo 4 L</div></div><b id="water">0 / 4 L</b></div><button class="primary" onclick="addWater()">+ 0.5 L</button></div>
+  </main>
+
+  <main id="calendar" class="screen page">
+    <div class="titlebar"><h2>Calendario</h2></div>
+    <div class="card"><div class="row"><div><b>Semana actual</b><div class="muted">Plan de 3 días</div></div><span>🔥</span></div></div>
+    <div class="grid" style="grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:12px">
+      <div class="tile"><small>L</small><b>5</b></div><div class="tile"><small>M</small><b>6</b></div><div class="tile"><small>X</small><b>7</b></div><div class="tile"><small>J</small><b>8</b></div><div class="tile"><small>V</small><b>9</b></div><div class="tile"><small>S</small><b>10</b></div><div class="tile"><small>D</small><b>11</b></div>
+    </div>
+    <div class="section">Plan semanal</div>
+    <div class="card"><div class="row"><b>Lunes · Push</b><span style="color:var(--green)">✓</span></div><div class="muted">Pecho · Hombros · Tríceps</div></div>
+    <div class="card"><div class="row"><b>Miércoles · Pull</b><span class="muted">Pendiente</span></div><div class="muted">Espalda · Bíceps · Trapecio</div></div>
+    <div class="card"><div class="row"><b>Viernes · Legs</b><span class="muted">Pendiente</span></div><div class="muted">Piernas · Glúteos · Pantorrillas</div></div>
+  </main>
+
+  <main id="stats" class="screen page">
+    <div class="titlebar"><h2>Estadísticas</h2></div>
+    <div class="statgrid"><div class="stat"><span class="muted">Entrenamientos</span><b id="workoutCount">0</b></div><div class="stat"><span class="muted">Racha</span><b id="streak">0 🔥</b></div></div>
+    <div class="section">Fuerza</div>
+    <div class="card"><div class="row"><b>Press de pecho</b><span class="muted">Último</span></div><h2>195 lb × 10</h2><div class="bar"><i style="width:72%"></i></div></div>
+    <div class="card"><div class="row"><b>Prensa de piernas</b><span class="muted">Último</span></div><h2>360 lb × 10</h2><div class="bar"><i style="width:81%"></i></div></div>
+    <div class="section">Peso</div><div class="card"><div class="muted">Tendencia</div><h2 id="trend">Registra más datos para ver tu tendencia.</h2></div>
+  </main>
+
+  <main id="profile" class="screen page">
+    <div class="titlebar"><button class="back" onclick="show('home')">‹</button><h2>RoadFit</h2></div>
+    <div class="card"><b>Objetivo</b><p class="muted">Perder grasa y mantener músculo.</p><div class="statgrid"><div class="stat"><span class="muted">Actual</span><b>215 lb</b></div><div class="stat"><span class="muted">Meta</span><b>175 lb</b></div></div></div>
+    <div class="card"><b>Preferencias</b><p class="muted">3 días · Push / Pull / Legs</p><div class="timerbtns"><button class="secondary" onclick="show('calendar')">Calendario</button><button class="secondary" onclick="show('stats')">Estadísticas</button></div><button class="secondary" style="width:100%;margin-top:10px" onclick="resetData()">Restablecer datos</button></div>
+    <div class="card"><b>Cuenta RoadFit</b><p class="muted">Esta versión guarda tus datos en este dispositivo.</p>
+ <input class="input" id="profileName" placeholder="Tu nombre" style="margin-top:8px">
+ <button class="primary" onclick="saveProfile()">Guardar perfil</button>
+ <div class="sync"><span class="dot"></span><div><b id="syncStatus">Datos guardados localmente</b><div class="muted">Listos para sincronización cuando conectemos una cuenta.</div></div></div>
+</div>
+  </main>
+
+  <div id="exerciseModal" class="modal" onclick="if(event.target===this)closeExercise()">
+ <div class="modalbox">
+  <div class="row"><div><span class="pill" id="videoTag">TÉCNICA</span><h2 id="videoTitle">Ejercicio</h2></div><button class="gear" onclick="closeExercise()">✕</button></div>
+  <div id="videoBox" class="videoBox"></div>
+  <div class="card" style="margin-top:12px"><b>Cómo hacerlo</b><p class="muted" id="videoText">Movimiento controlado, postura estable y rango cómodo.</p></div>
+  <button class="primary" onclick="closeExercise()">Listo ✓</button>
+ </div>
+</div>
+<div class="tabs"><div class="tabsin">
+    <button class="tab active" data-s="home" onclick="show('home')"><strong>⌂</strong>Inicio</button>
+    <button class="tab" data-s="workouts" onclick="show('workouts')"><strong>🏋️</strong>Rutinas</button>
+    <button class="tab" data-s="progress" onclick="show('progress')"><strong>📈</strong>Progreso</button>
+    <button class="tab" data-s="nutrition" onclick="show('nutrition')"><strong>🍎</strong>Nutrición</button>
+    <button class="tab" data-s="calendar" onclick="show('calendar')"><strong>📅</strong>Calendario</button>
+    <button class="tab" data-s="stats" onclick="show('stats')"><strong>📊</strong>Stats</button>
+  </div></div>
+</div>
+
+<script>
+const data={
+ Push:[['Press de pecho (máquina)',4,'8–12'],['Press inclinado (mancuernas)',3,'8–12'],['Pec Deck',3,'12–15'],['Press de hombros',3,'8–12'],['Elevaciones laterales',4,'12–15'],['Reverse Pec Deck',3,'12–15'],['Tríceps Pushdown',3,'10–12'],['Extensión de tríceps overhead',3,'10–12']],
+ Pull:[['Lat Pulldown',4,'8–12'],['Remo sentado',4,'8–12'],['Remo con pecho apoyado',3,'10–12'],['Pullover en polea',3,'12–15'],['Shrugs',3,'10–15'],['Face Pull',3,'12–15'],['Curl con mancuernas',3,'10–12'],['Hammer Curl',3,'10–12']],
+ Legs:[['Prensa de piernas',4,'8–12'],['Hack Squat / Smith Squat',3,'8–12'],['Leg Extension',3,'12–15'],['Leg Curl',4,'10–12'],['Romanian Deadlift',3,'8–12'],['Hip Thrust',3,'10–12'],['Abductor Machine',3,'12–15'],['Calf Raises',4,'12–20']]
+};
+let selected='Push', idx=0, timer=90, interval=null, history=JSON.parse(localStorage.getItem('rf_history')||'[]'), water=Number(localStorage.getItem('rf_water')||0), workoutLog=JSON.parse(localStorage.getItem('rf_workoutLog')||'{}');
+function exerciseKey(group,i){return group+'__'+i}
+function getExerciseLog(group,i){const key=exerciseKey(group,i); return workoutLog[key]||{sets:[]}}
+function saveWorkoutLog(){localStorage.setItem('rf_workoutLog',JSON.stringify(workoutLog))}
+function saveSetValue(setIndex,field,value){const key=exerciseKey(selected,idx);if(!workoutLog[key]) workoutLog[key]={sets:[]};if(!workoutLog[key].sets[setIndex]) workoutLog[key].sets[setIndex]={};workoutLog[key].sets[setIndex][field]=value;workoutLog[key].sets[setIndex].updated=new Date().toISOString();saveWorkoutLog()}
+function toggleSetDone(setIndex,button){const key=exerciseKey(selected,idx);if(!workoutLog[key]) workoutLog[key]={sets:[]};if(!workoutLog[key].sets[setIndex]) workoutLog[key].sets[setIndex]={};workoutLog[key].sets[setIndex].done=!workoutLog[key].sets[setIndex].done;button.classList.toggle('done',workoutLog[key].sets[setIndex].done);button.textContent=workoutLog[key].sets[setIndex].done?'✓':'○';saveWorkoutLog()}
+function lastSetText(group,i){const log=getExerciseLog(group,i);const valid=(log.sets||[]).filter(x=>x&&x.weight&&x.reps);if(!valid.length)return 'Sin registro todavía';const x=valid[valid.length-1];return 'Último: '+x.weight+' lb × '+x.reps}
+
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.s===id));if(id==='workouts')renderList();if(id==='progress')renderHistory();if(id==='stats')renderHistory();}
+function selectWorkout(w){selected=w;idx=0;document.getElementById('todayName').textContent=w;document.getElementById('todayMuscles').textContent=w==='Push'?'Pecho · Hombros · Tríceps':w==='Pull'?'Espalda · Bíceps · Trapecio':'Cuádriceps · Femorales · Glúteos';renderList();show('workouts')}
+function renderList(){const box=document.getElementById('exerciseList');box.innerHTML='<div class="card"><div class="eyebrow">'+selected+'</div><h2>'+ (selected==='Push'?'Pecho · Hombros · Tríceps':selected==='Pull'?'Espalda · Bíceps · Trapecio':'Piernas · Glúteos · Pantorrillas')+'</h2><p class="muted">Tus pesos y repeticiones se guardan automáticamente.</p></div>'+data[selected].map((e,i)=>`<div class="card"><div class="exercise"><div class="num">${i+1}</div><div style="flex:1"><h3>${e[0]}</h3><p>${e[1]} series · ${e[2]} reps</p><p style="color:var(--blue);font-size:11px;margin-top:5px">${lastSetText(selected,i)}</p></div><button class="secondary" style="padding:7px 9px;font-size:11px" onclick="exerciseInfo(${i})">Ver</button><button class="check" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':'○'">○</button></div></div>`).join('')+'<button class="primary" onclick="openWorkout()">Iniciar rutina</button>'}
+function openWorkout(){idx=0;renderTrain();show('train')}
+function renderTrain(){const e=data[selected][idx],log=getExerciseLog(selected,idx);document.getElementById('trainTitle').textContent=selected;document.getElementById('trainCount').textContent=`Ejercicio ${idx+1} de ${data[selected].length}`;document.getElementById('currentEx').textContent=e[0];document.getElementById('currentSets').textContent=`${e[1]} × ${e[2]}`;let s='';for(let i=0;i<e[1];i++){const row=log.sets?.[i]||{};s+=`<div class="card"><div class="row"><b>Serie ${i+1}</b><div style="display:flex;gap:8px;align-items:center"><input class="input" style="width:80px" inputmode="decimal" type="number" step="0.5" placeholder="lb" value="${row.weight||''}" oninput="saveSetValue(${i},'weight',this.value)"><input class="input" style="width:70px" inputmode="numeric" type="number" min="0" placeholder="reps" value="${row.reps||''}" oninput="saveSetValue(${i},'reps',this.value)"><button class="check ${row.done?'done':''}" onclick="toggleSetDone(${i},this)">${row.done?'✓':'○'}</button></div></div></div>`}document.getElementById('sets').innerHTML=s}
+function nextEx(){if(idx<data[selected].length-1){idx++;renderTrain()}else{let c=Number(localStorage.getItem('rf_workouts')||0)+1;localStorage.setItem('rf_workouts',c);saveWorkoutLog();alert('¡Entrenamiento completado! 🔥\nTus pesos y repeticiones quedaron guardados.');show('home');renderList()}}
+function prevEx(){if(idx>0){idx--;renderTrain()}}
+function updateTimer(){let m=Math.floor(timer/60),s=timer%60;document.getElementById('timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(timer<=0){clearInterval(interval);interval=null;document.getElementById('timerBtn').textContent='▶';navigator.vibrate?.(300);alert('¡Descanso terminado! 🔥')}}
+function toggleTimer(){if(interval){clearInterval(interval);interval=null;document.getElementById('timerBtn').textContent='▶'}else{document.getElementById('timerBtn').textContent='Ⅱ';interval=setInterval(()=>{timer--;updateTimer()},1000)}}
+function adjustTimer(n){timer=Math.max(0,timer+n);updateTimer()}
+function saveWeight(){let v=parseFloat(document.getElementById('weightInput').value);if(!v)return;history.unshift({date:new Date().toLocaleDateString('es-US'),weight:v});localStorage.setItem('rf_history',JSON.stringify(history));document.getElementById('weightInput').value='';updateWeights();renderHistory()}
+function renderHistory(){const b=document.getElementById('history');const c=Number(localStorage.getItem('rf_workouts')||0);document.getElementById('workoutCount').textContent=c;document.getElementById('streak').textContent=(c?Math.min(c,7):0)+' 🔥';b.innerHTML=history.length?history.slice(0,10).map(x=>`<div class="card row"><span>${x.date}</span><b>${x.weight} lb</b></div>`).join(''):'<div class="empty">Todavía no hay registros. Agrega tu peso arriba.</div>'}
+const videoIds={
+ 'Press de pecho (máquina)':'n8TOta_pfr4',
+ 'Press inclinado (mancuernas)':'HFVwgST_WG4',
+ 'Pec Deck':'wsNAD1BpiaE',
+ 'Press de hombros':'GcY6TZxfS0k',
+ 'Elevaciones laterales':'Myim1WH6Qec',
+ 'Reverse Pec Deck':'Z84HkxGCBqQ',
+ 'Tríceps Pushdown':'Io5jKW08UlQ'
+};
+function exerciseInfo(i){
+ const e=data[selected][i], name=e[0], id=videoIds[name];
+ document.getElementById('videoTitle').textContent=name;
+ document.getElementById('videoText').textContent='Haz '+e[1]+' series de '+e[2]+' repeticiones. Mantén el movimiento controlado, la postura estable y no sacrifiques técnica por peso.';
+ const box=document.getElementById('videoBox');
+ if(id){
+   box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0" title="'+name+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+ }else{
+   const q=encodeURIComponent(name+' exercise tutorial');
+   box.innerHTML='<div class="videoFallback"><div class="play">▶️</div><b>Video de referencia</b><div class="muted">Busca una demostración de '+name+' en YouTube.</div><a href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">Ver videos en YouTube →</a></div>';
+ }
+ document.getElementById('exerciseModal').classList.add('open');
+}
+function closeExercise(){document.getElementById('exerciseModal').classList.remove('open');document.getElementById('videoBox').innerHTML=''}
+function saveProfile(){const n=document.getElementById('profileName').value.trim();if(n){localStorage.setItem('rf_name',n);document.getElementById('syncStatus').textContent='Perfil guardado: '+n}else alert('Escribe tu nombre primero.')}
+function updateWeights(){let w=history[0]?.weight||215;document.getElementById('pWeight').textContent=w+' lb';document.getElementById('homeWeight').textContent=w;let pct=Math.max(0,Math.min(100,(222-w)/(222-175)*100));document.getElementById('goalbar').style.width=pct+'%';document.getElementById('goaltext').textContent=Math.max(0,(w-175)).toFixed(1)+' lb hasta tu meta';updateNutrition(w)}
+function updateNutrition(w){
+  // RoadFit usa el peso actual para ajustar gradualmente el objetivo.
+  // Base: 2,030 kcal a 215 lb; el objetivo baja ~5 kcal por cada libra perdida,
+  // manteniendo un piso de 1,800 kcal. Proteína se mantiene alta y los carbos
+  // se ajustan para completar las calorías después de proteína y grasa.
+  const calories=Math.max(1800,Math.round(2030-(215-w)*5));
+  const protein=Math.max(150,Math.round(150));
+  const fat=Math.max(60,Math.round(70-(215-w)*0.12));
+  const carbs=Math.max(100,Math.round((calories-protein*4-fat*9)/4));
+  const kcal=document.getElementById('calorieTarget'); if(kcal) kcal.textContent=calories.toLocaleString('en-US');
+  const pr=document.getElementById('proteinTarget'); if(pr) pr.textContent=protein+' g';
+  const cb=document.getElementById('carbTarget'); if(cb) cb.textContent=carbs+' g';
+  const ft=document.getElementById('fatTarget'); if(ft) ft.textContent=fat+' g';
+  const meal=document.querySelector('#nutrition .card:nth-of-type(2) .row .muted');
+  if(meal) meal.textContent='0 / '+calories.toLocaleString('en-US')+' kcal';
+  localStorage.setItem('rf_nutrition',JSON.stringify({calories,protein,carbs,fat,weight:w}));
+}
+function addWater(){water=Math.min(4,water+.5);localStorage.setItem('rf_water',water);document.getElementById('water').textContent=water.toFixed(1)+' / 4 L'}
+function roadMode(){alert('ROAD MODE 🚛\\n\\n3 rondas:\\n• 15 sentadillas\\n• 10 flexiones\\n• 12 zancadas por pierna\\n• 30 s plancha\\n• 15 fondos en banco\\n\\nDescansa 60–90 s entre rondas.')}
+function resetData(){localStorage.clear();history=[];water=0;workoutLog={};updateWeights();renderHistory();document.getElementById('water').textContent='0 / 4 L';alert('Datos restablecidos.')}
+if(localStorage.getItem('rf_name'))document.getElementById('profileName').value=localStorage.getItem('rf_name');updateWeights();document.getElementById('water').textContent=water.toFixed(1)+' / 4 L';renderList();
+</script>
+</body>
+</html>
