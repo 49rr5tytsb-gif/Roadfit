@@ -134,7 +134,10 @@
 </div>
 
 <script>
-const data={
+const SUPABASE_URL = 'https://kqwfelmgeffwcvfrcgdr.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_jl5J3h10tsY-6U4_UdWqOg_9UqTapLk';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+  const data={
  Push:[['Press de pecho (máquina)',4,'8–12'],['Press inclinado (mancuernas)',3,'8–12'],['Pec Deck',3,'12–15'],['Press de hombros',3,'8–12'],['Elevaciones laterales',4,'12–15'],['Reverse Pec Deck',3,'12–15'],['Tríceps Pushdown',3,'10–12'],['Extensión de tríceps overhead',3,'10–12']],
  Pull:[['Lat Pulldown',4,'8–12'],['Remo sentado',4,'8–12'],['Remo con pecho apoyado',3,'10–12'],['Pullover en polea',3,'12–15'],['Shrugs',3,'10–15'],['Face Pull',3,'12–15'],['Curl con mancuernas',3,'10–12'],['Hammer Curl',3,'10–12']],
  Legs:[['Prensa de piernas',4,'8–12'],['Hack Squat / Smith Squat',3,'8–12'],['Leg Extension',3,'12–15'],['Leg Curl',4,'10–12'],['Romanian Deadlift',3,'8–12'],['Hip Thrust',3,'10–12'],['Abductor Machine',3,'12–15'],['Calf Raises',4,'12–20']]
