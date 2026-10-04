@@ -239,6 +239,92 @@ function addWater(){water=Math.min(4,water+.5);localStorage.setItem('rf_water',w
 function roadMode(){alert('ROAD MODE 🚛\\n\\n3 rondas:\\n• 15 sentadillas\\n• 10 flexiones\\n• 12 zancadas por pierna\\n• 30 s plancha\\n• 15 fondos en banco\\n\\nDescansa 60–90 s entre rondas.')}
 function resetData(){localStorage.clear();history=[];water=0;workoutLog={};strengthHistory=[];updateWeights();renderHistory();renderStats();document.getElementById('water').textContent='0 / 4 L';alert('Datos restablecidos.')}
 if(localStorage.getItem('rf_name'))document.getElementById('profileName').value=localStorage.getItem('rf_name');initWelcome();updateWeights();document.getElementById('water').textContent=water.toFixed(1)+' / 4 L';renderList();renderStats();
+async function signUpRoadFit(){
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+
+  if(!email || !password){
+    alert('Escribe tu correo y contraseña.');
+    return;
+  }
+
+  const {data,error}=await supabaseClient.auth.signUp({
+    email,
+    password,
+    options:{
+      emailRedirectTo:'https://49rr5tytsb-gif.github.io/Roadfit/'
+    }
+  });
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  if(data.session){
+    updateAuthUI(data.session.user);
+  }else{
+    document.getElementById('authMessage').textContent='Revisa tu correo para confirmar tu cuenta.';
+    alert('Cuenta creada. Revisa tu correo para confirmar tu cuenta.');
+  }
+}
+
+async function signInRoadFit(){
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+
+  if(!email || !password){
+    alert('Escribe tu correo y contraseña.');
+    return;
+  }
+
+  const {data,error}=await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  updateAuthUI(data.user);
+}
+
+async function signOutRoadFit(){
+  const {error}=await supabaseClient.auth.signOut();
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  updateAuthUI(null);
+}
+
+function updateAuthUI(user){
+  const status=document.getElementById('syncStatus');
+  const message=document.getElementById('authMessage');
+  const logout=document.getElementById('logoutBtn');
+
+  if(user){
+    status.textContent='Sesión iniciada';
+    message.textContent=user.email;
+    logout.style.display='block';
+  }else{
+    status.textContent='No has iniciado sesión';
+    message.textContent='Tus datos están guardados en este dispositivo.';
+    logout.style.display='none';
+  }
+}
+
+supabaseClient.auth.getSession().then(({data})=>{
+  updateAuthUI(data.session ? data.session.user : null);
+});
+
+supabaseClient.auth.onAuthStateChange((event,session)=>{
+  updateAuthUI(session ? session.user : null);
+});
 </script>
 </body>
 </html>
